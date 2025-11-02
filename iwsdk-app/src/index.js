@@ -26,7 +26,9 @@ World.create(document.getElementById('scene-container'), {
     features: { }
   },
 
-  features: { },
+  features: { 
+    locomotion: true,
+  },
 
 }).then((world) => {
 
@@ -46,7 +48,7 @@ World.create(document.getElementById('scene-container'), {
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
-
+  <floorEntity>.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});</floorEntity>
 
 
 
