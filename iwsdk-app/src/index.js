@@ -4,6 +4,8 @@ import {
   SphereGeometry,
   SessionMode,
   World,
+  PlaneGeometry,
+  Scene,
 } from '@iwsdk/core';
 
 import {
@@ -38,7 +40,12 @@ World.create(document.getElementById('scene-container'), {
   sphere.position.set(1, 0, -2);
   const sphereEntity = world.createTransformEntity(sphere);
 
-
+  // create a floor
+  const floorGeometry = new PlaneGeometry(10, 10);
+  const floorMaterial = new MeshStandardMaterial({color: "light brown"});
+  const floorMesh = new Mesh(floorGeometry, floorMaterial);
+  floorMesh.rotation.x = -Math.PI / 2;
+  const floorEntity = world.createTransformEntity(floorMesh);
 
 
 
