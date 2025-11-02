@@ -21,7 +21,13 @@ const assets = {
   mapleTree: {
     url:'/gltf/plantSansevieria/maple_tree.glb',
     type: AssetType.GLTF,
-    priority: 'critical,'
+    priority: 'critical',
+  }
+
+  coin: {
+    url: '/gltf/plantSansevieria/coin.glb',
+    type: AssetType.GLTF,
+    priority: 'critical',
   }
 };
 
@@ -59,10 +65,13 @@ World.create(document.getElementById('scene-container'), {
 
   //import 3d object (tree)
   const tree = AssetManager.getGLTF('mapleTree').scene;
-  tree.position.set(5, 5, 5);
+  tree.position.set(5, 0, 5);
   const treeEntity = world.createTransformEntity(tree);
 
-
+  //import 3d object (coin1)
+  const coin1 = AssetManager.getGLTF('coin').scene;
+  coin1.position.set(6, 1, 6);
+  const coin1Entity = world.createTransformEntity(coin1);
 
 
 
