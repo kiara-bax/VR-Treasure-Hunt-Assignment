@@ -47,6 +47,7 @@ World.create(document.getElementById('scene-container'), {
 }).then((world) => {
 
   const { camera } = world;
+  camera.position.set(0, 1.6, 0);
 
   
   // Create a green sphere
@@ -63,6 +64,7 @@ World.create(document.getElementById('scene-container'), {
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
   floorEntity.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
+  console.log(floorEntity.getComponent(LocomotionEnvironment));
 
   //import 3d object (tree)
   const tree = AssetManager.getGLTF('mapleTree').scene;
