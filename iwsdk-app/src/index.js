@@ -1,12 +1,12 @@
 import {
-  Mesh,
-  MeshStandardMaterial,
+  Mesh, MeshStandardMaterial,
   SphereGeometry,
   SessionMode,
   World,
   PlaneGeometry,
   Scene,
   AssetManager, AssetType,
+  LocomotionEnvironment, EnvironmentType,
 } from '@iwsdk/core';
 
 import {
