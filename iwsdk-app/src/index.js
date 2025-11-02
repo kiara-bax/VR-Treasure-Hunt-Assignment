@@ -61,7 +61,7 @@ World.create(document.getElementById('scene-container'), {
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
-  //<floorEntity>.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});</floorEntity>
+  floorEntity.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
 
   //import 3d object (tree)
   const tree = AssetManager.getGLTF('mapleTree').scene;
