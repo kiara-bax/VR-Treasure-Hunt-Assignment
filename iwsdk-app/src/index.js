@@ -22,7 +22,7 @@ const assets = {
     url:'/gltf/plantSansevieria/maple_tree.glb',
     type: AssetType.GLTF,
     priority: 'critical',
-  }
+  },
 
   coin: {
     url: '/gltf/plantSansevieria/coin.glb',
@@ -73,7 +73,10 @@ World.create(document.getElementById('scene-container'), {
   coin1.position.set(6, 1, 6);
   const coin1Entity = world.createTransformEntity(coin1);
 
-
+  // coin2
+  const coin2 = AssetManager.getGLTF('coin').scene;
+  coin1.position.set(8, 1, 7);
+  const coin2Entity = world.createTransformEntity(coin2);
 
 
   // vvvvvvvv EVERYTHING BELOW WAS ADDED TO DISPLAY A BUTTON TO ENTER VR FOR QUEST 1 DEVICES vvvvvv
