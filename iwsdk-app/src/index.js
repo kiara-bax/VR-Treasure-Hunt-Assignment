@@ -6,6 +6,7 @@ import {
   World,
   PlaneGeometry,
   Scene,
+  AssetManager, AssetType,
 } from '@iwsdk/core';
 
 import {
@@ -16,7 +17,13 @@ import {
 
 import { PanelSystem } from './panel.js'; // system for displaying "Enter VR" panel on Quest 1
 
-const assets = { };
+const assets = { 
+  mapleTree: {
+    url:'/gltf/plantSansevieria/maple_tree.glb',
+    type: AssetType.GLTF,
+    priority: 'critical,'
+  }
+};
 
 World.create(document.getElementById('scene-container'), {
   assets,
@@ -44,13 +51,15 @@ World.create(document.getElementById('scene-container'), {
 
   // create a floor
   const floorGeometry = new PlaneGeometry(10, 10);
-  const floorMaterial = new MeshStandardMaterial({color: "light brown"});
+  const floorMaterial = new MeshStandardMaterial({color: "green"});
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
-  <floorEntity>.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});</floorEntity>
+  //<floorEntity>.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});</floorEntity>
 
-
+  //import 3d object (tree)
+  const tree = AssetManager.getGLTF('mapleTree').scene;
+  const treeEntity = world.createTransformEntity(tree);
 
 
 
