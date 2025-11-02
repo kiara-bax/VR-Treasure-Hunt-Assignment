@@ -6,7 +6,6 @@ import {
   PlaneGeometry,
   Scene,
   AssetManager, AssetType,
-  LocomotionEnvironment, EnvironmentType,
 } from '@iwsdk/core';
 
 import {
@@ -16,6 +15,8 @@ import {
 } from '@iwsdk/core';
 
 import { PanelSystem } from './panel.js'; // system for displaying "Enter VR" panel on Quest 1
+
+import {LocomotionEnvironment, EnvironmentType,} from '@iwsdk/locomotion';
 
 const assets = { 
   mapleTree: {
