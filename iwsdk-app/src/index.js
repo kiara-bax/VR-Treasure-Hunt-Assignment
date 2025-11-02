@@ -16,7 +16,7 @@ import {
 
 import { PanelSystem } from './panel.js'; // system for displaying "Enter VR" panel on Quest 1
 
-import {LocomotionEnvironment, EnvironmentType,} from '@iwsdk/locomotor';
+import {LocomotionEnvironment, EnvironmentType,} from '/workspaces/VR-Treasure-Hunt-Assignment/iwsdk-app/node_modules/@iwsdk/locomotor';
 
 const assets = { 
   mapleTree: {
