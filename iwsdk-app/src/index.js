@@ -89,10 +89,10 @@ World.create(document.getElementById('scene-container'), {
   coin1.position.set(6, 1, 6);
   coin1.scale.set(0.5, 0.5, 0.5);
   const coin1Entity = world.createTransformEntity(coin1).addComponent(Interactable);
-  coin1.object3D.addEventListener("pointerdown", remove);
+  coin1Entity.object3D.addEventListener("pointerdown", remove);
 
   function remove(){
-    coin1.destroy();
+    coin1Entity.destroy();
   }
 
   // coin2 clone
