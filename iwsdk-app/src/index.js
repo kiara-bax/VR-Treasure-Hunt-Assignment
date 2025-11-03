@@ -72,17 +72,19 @@ World.create(document.getElementById('scene-container'), {
   const treeEntity = world.createTransformEntity(tree);
 
   //import 3d object (coin1)
-  const coin1 = AssetManager.getGLTF('coin').scene;
+  const coinAsset = world.assetManager.getGLTF('coin').scene;
+  
+  const coin1 = coinAsset.clone();
   coin1.position.set(6, 1, 6);
   const coin1Entity = world.createTransformEntity(coin1);
 
   // coin2
-  const coin2 = AssetManager.getGLTF('coin').scene;
+  const coin2 = coinAsset.clone();
   coin1.position.set(7, 1, 7);
   const coin2Entity = world.createTransformEntity(coin2);
 
   //coin3
-  const coin3 = AssetManager.getGLTF('coin').scene;
+  const coin3 = coinAsset.clone();
   coin3.position.set(8, 1, 8);
   const coin3Entity = world.createTransformEntity(coin3);
 
