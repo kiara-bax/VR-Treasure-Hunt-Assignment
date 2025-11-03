@@ -89,9 +89,9 @@ World.create(document.getElementById('scene-container'), {
   coin1.position.set(6, 1, 6);
   coin1.scale.set(0.5, 0.5, 0.5);
   const coin1Entity = world.createTransformEntity(coin1).addComponent(Interactable);
-  coin1Entity.object3D.addEventListener("pointerdown", remove);
+  coin1Entity.object3D.addEventListener("pointerdown", removeCoin1);
 
-  function remove(){
+  function removeCoin1(){
     coin1Entity.destroy();
   }
 
@@ -100,12 +100,21 @@ World.create(document.getElementById('scene-container'), {
   coin2.position.set(20, 1, -25);
   coin2.scale.set(0.5, 0.5, 0.5);
   const coin2Entity = world.createTransformEntity(coin2);
+  coin2Entity.object3D.addEventListener("pointerdown", removeCoin2);
 
+  function removeCoin2(){
+    coin2Entity.destroy();
+  }
   //coin3 clone
   const coin3 = coinAsset.clone();
   coin3.position.set(30, 1, 8);
   coin3.scale.set(0.5, 0.5, 0.5);
   const coin3Entity = world.createTransformEntity(coin3);
+  coin3Entity.object3D.addEventListener("pointerdown", removeCoin3);
+
+  function removeCoin3(){
+    coin3Entity.destroy();
+  }
 
 
   // vvvvvvvv EVERYTHING BELOW WAS ADDED TO DISPLAY A BUTTON TO ENTER VR FOR QUEST 1 DEVICES vvvvvv
