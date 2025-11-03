@@ -76,17 +76,17 @@ World.create(document.getElementById('scene-container'), {
   
   const coin1 = coinAsset.clone();
   coin1.position.set(6, 1, 6);
-  const coin1Entity = world.createTransformEntity(coin1);
+  world.createTransformEntity(coin1);
 
   // coin2
   const coin2 = coinAsset.clone();
-  coin1.position.set(7, 1, 7);
-  const coin2Entity = world.createTransformEntity(coin2);
+  coin2.position.set(7, 1, 7);
+  world.createTransformEntity(coin2);
 
   //coin3
   const coin3 = coinAsset.clone();
   coin3.position.set(8, 1, 8);
-  const coin3Entity = world.createTransformEntity(coin3);
+  world.createTransformEntity(coin3);
 
 
   // vvvvvvvv EVERYTHING BELOW WAS ADDED TO DISPLAY A BUTTON TO ENTER VR FOR QUEST 1 DEVICES vvvvvv
