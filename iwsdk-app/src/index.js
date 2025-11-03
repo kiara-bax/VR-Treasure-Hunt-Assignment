@@ -5,7 +5,8 @@ import {
   World,
   PlaneGeometry,
   Scene,
-  AssetManager, AssetType,
+  AssetManager, AssetType, 
+  LocomotionEnvironment, EnvironmentType, PlaneGeometry
 } from '@iwsdk/core';
 
 import {
@@ -15,8 +16,6 @@ import {
 } from '@iwsdk/core';
 
 import { PanelSystem } from './panel.js'; // system for displaying "Enter VR" panel on Quest 1
-
-import {LocomotionEnvironment, EnvironmentType,} from '/workspaces/VR-Treasure-Hunt-Assignment/iwsdk-app/node_modules/@iwsdk/locomotor';
 
 const assets = { 
   mapleTree: {
@@ -54,8 +53,10 @@ World.create(document.getElementById('scene-container'), {
   const sphereGeometry = new SphereGeometry(0.5, 32, 32);
   const greenMaterial = new MeshStandardMaterial({ color: 0x33ff33 });
   const sphere = new Mesh(sphereGeometry, greenMaterial);
-  sphere.position.set(1, 0, -2);
+  //sphere.position.set(1, 0, -2);
   const sphereEntity = world.createTransformEntity(sphere);
+
+  sphereEntity.object3D.position.set(1, 0, -2);
 
   // create a floor
   const floorGeometry = new PlaneGeometry(10, 10);
@@ -63,8 +64,8 @@ World.create(document.getElementById('scene-container'), {
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
+  
   floorEntity.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
-  console.log(floorEntity.getComponent(LocomotionEnvironment));
 
   //import 3d object (tree)
   const tree = AssetManager.getGLTF('mapleTree').scene;
