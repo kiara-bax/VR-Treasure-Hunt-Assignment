@@ -67,29 +67,33 @@ World.create(document.getElementById('scene-container'), {
   floorEntity.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
 
   //import 3d object (tree)
-  const tree = AssetManager.getGLTF('mapleTree').scene;
-  tree.position.set(5, -1, 5);
-  tree.scale.set(0.5, 0.5, 0.5);
-  const treeEntity = world.createTransformEntity(tree);
+  const treeAsset = AssetManager.getGLTF('mapleTree').scene;
 
-  //import 3d object (coin1)
+  //tree1 clone
+  const tree1 = treeAsset.clone();
+  tree.object3D.position.set(5, -1, 5);
+  tree.object3D.scale.set(0.5, 0.5, 0.5);
+  world.createTransformEntity(tree1);
+
+  //import 3d object (coin)
   const coinAsset = AssetManager.getGLTF('coin').scene;
   
+  // coin1 clone
   const coin1 = coinAsset.clone();
-  coin1.position.set(6, 1, 6);
-  coin1.scale.set(0.5, 0.5, 0.5);
+  coin1.object3D.position.set(6, 1, 6);
+  coin1.object3D.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin1);
 
-  // coin2
+  // coin2 clone
   const coin2 = coinAsset.clone();
-  coin2.position.set(20, 1, -25);
-  coin2.scale.set(0.5, 0.5, 0.5);
+  coin2.object3D.position.set(20, 1, -25);
+  coin2.object3D.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin2);
 
-  //coin3
+  //coin3 clone
   const coin3 = coinAsset.clone();
-  coin3.position.set(30, 1, 8);
-  coin3.scale.set(0.5, 0.5, 0.5);
+  coin3.object3D.position.set(30, 1, 8);
+  coin3.object3D.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin3);
 
 
