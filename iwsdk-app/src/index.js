@@ -77,16 +77,19 @@ World.create(document.getElementById('scene-container'), {
   
   const coin1 = coinAsset.clone();
   coin1.position.set(6, 1, 6);
+  coin1.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin1);
 
   // coin2
   const coin2 = coinAsset.clone();
   coin2.position.set(20, 1, -25);
+  coin2.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin2);
 
   //coin3
   const coin3 = coinAsset.clone();
-  coin3.position.set(45, 1, 8);
+  coin3.position.set(30, 1, 8);
+  coin3.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin3);
 
 
