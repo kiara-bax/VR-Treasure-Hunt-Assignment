@@ -55,7 +55,7 @@ World.create(document.getElementById('scene-container'), {
   // //sphere.position.set(1, 0, -2);
   // const sphereEntity = world.createTransformEntity(sphere);
 
-  sphereEntity.object3D.position.set(1, 0, -2);
+  //sphereEntity.object3D.position.set(1, 0, -2);
 
   // create a floor
   const floorGeometry = new PlaneGeometry(200, 200);
@@ -64,7 +64,7 @@ World.create(document.getElementById('scene-container'), {
   floorMesh.rotation.x = -Math.PI / 2;
   const floorEntity = world.createTransformEntity(floorMesh);
   
-  floorEntity.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
+  floorEntity.object3D.addComponent(LocomotionEnvironment, {type: EnvironmentType.STATIC});
 
   //import 3d object (tree)
   const treeAsset = AssetManager.getGLTF('mapleTree').scene;
@@ -73,13 +73,13 @@ World.create(document.getElementById('scene-container'), {
   const tree1 = treeAsset.clone();
   tree1.position.set(5, -2, 5);
   tree1.scale.set(0.5, 0.5, 0.5);
-  world.createTransformEntity(tree1);
+  const tree1Entity = world.createTransformEntity(tree1);
 
   //tree2 clone
   const tree2 = treeAsset.clone();
   tree2.position.set(19, -2, -24);
   tree2.scale.set(0.5, 0.5, 0.5);
-  world.createTransformEntity(tree2);
+  const tree2Entity = world.createTransformEntity(tree2);
 
   //import 3d object (coin)
   const coinAsset = AssetManager.getGLTF('coin').scene;
@@ -88,25 +88,24 @@ World.create(document.getElementById('scene-container'), {
   const coin1 = coinAsset.clone();
   coin1.position.set(6, 1, 6);
   coin1.scale.set(0.5, 0.5, 0.5);
-  world.createTransformEntity(coin1).addComponent(Interactable);
-  coin1.addEventListener("pointerdown", destroy);
+  const coin1Entity = world.createTransformEntity(coin1).addComponent(Interactable);
+  coin1.addEventListener("pointerdown", remove);
 
-  function destroy(){
+  function remove(){
     coin1.destroy();
-
   }
 
   // coin2 clone
   const coin2 = coinAsset.clone();
   coin2.position.set(20, 1, -25);
   coin2.scale.set(0.5, 0.5, 0.5);
-  world.createTransformEntity(coin2);
+  const coin2Entity = world.createTransformEntity(coin2);
 
   //coin3 clone
   const coin3 = coinAsset.clone();
   coin3.position.set(30, 1, 8);
   coin3.scale.set(0.5, 0.5, 0.5);
-  world.createTransformEntity(coin3);
+  const coin3Entity = world.createTransformEntity(coin3);
 
 
   // vvvvvvvv EVERYTHING BELOW WAS ADDED TO DISPLAY A BUTTON TO ENTER VR FOR QUEST 1 DEVICES vvvvvv
