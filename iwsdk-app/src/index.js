@@ -69,7 +69,7 @@ World.create(document.getElementById('scene-container'), {
   //import 3d object (tree)
   const tree = AssetManager.getGLTF('mapleTree').scene;
   tree.position.set(5, -1, 5);
-  tree.scale.set(2, 2, 2);
+  tree.scale.set(0.5, 0.5, 0.5);
   const treeEntity = world.createTransformEntity(tree);
 
   //import 3d object (coin1)
