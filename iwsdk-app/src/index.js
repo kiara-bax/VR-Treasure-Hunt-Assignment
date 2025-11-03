@@ -58,7 +58,7 @@ World.create(document.getElementById('scene-container'), {
   sphereEntity.object3D.position.set(1, 0, -2);
 
   // create a floor
-  const floorGeometry = new PlaneGeometry(100, 100);
+  const floorGeometry = new PlaneGeometry(200, 200);
   const floorMaterial = new MeshStandardMaterial({color: "green"});
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
@@ -71,13 +71,13 @@ World.create(document.getElementById('scene-container'), {
 
   //tree1 clone
   const tree1 = treeAsset.clone();
-  tree1.position.set(5, -1, 5);
+  tree1.position.set(5, -2, 5);
   tree1.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(tree1);
 
   //tree2 clone
   const tree2 = treeAsset.clone();
-  tree2.position.set(19, -1, -24);
+  tree2.position.set(19, -2, -24);
   tree2.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(tree2);
 
