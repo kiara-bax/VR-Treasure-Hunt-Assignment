@@ -78,12 +78,12 @@ World.create(document.getElementById('scene-container'), {
 
   // coin2
   const coin2 = AssetManager.getGLTF('coin').scene;
-  coin1.position.set(8, 1, 7);
+  coin1.position.set(7, 1, 7);
   const coin2Entity = world.createTransformEntity(coin2);
 
   //coin3
   const coin3 = AssetManager.getGLTF('coin').scene;
-  coin3.position.set(8, 1, 9);
+  coin3.position.set(8, 1, 8);
   const coin3Entity = world.createTransformEntity(coin3);
 
 
