@@ -6,7 +6,7 @@ import {
   PlaneGeometry,
   Scene,
   AssetManager, AssetType, 
-  LocomotionEnvironment, EnvironmentType, PlaneGeometry
+  LocomotionEnvironment, EnvironmentType, PlaneGeometry,
 } from '@iwsdk/core';
 
 import {
@@ -46,7 +46,6 @@ World.create(document.getElementById('scene-container'), {
 }).then((world) => {
 
   const { camera } = world;
-  camera.position.set(0, 1.6, 0);
 
   
   // Create a green sphere
