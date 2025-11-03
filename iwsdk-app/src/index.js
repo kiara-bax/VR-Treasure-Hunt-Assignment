@@ -48,12 +48,12 @@ World.create(document.getElementById('scene-container'), {
   const { camera } = world;
 
   
-  // Create a green sphere
-  const sphereGeometry = new SphereGeometry(0.5, 32, 32);
-  const greenMaterial = new MeshStandardMaterial({ color: 0x33ff33 });
-  const sphere = new Mesh(sphereGeometry, greenMaterial);
-  //sphere.position.set(1, 0, -2);
-  const sphereEntity = world.createTransformEntity(sphere);
+  // // Create a green sphere
+  // const sphereGeometry = new SphereGeometry(0.5, 32, 32);
+  // const greenMaterial = new MeshStandardMaterial({ color: 0x33ff33 });
+  // const sphere = new Mesh(sphereGeometry, greenMaterial);
+  // //sphere.position.set(1, 0, -2);
+  // const sphereEntity = world.createTransformEntity(sphere);
 
   sphereEntity.object3D.position.set(1, 0, -2);
 
