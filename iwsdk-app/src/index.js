@@ -89,7 +89,7 @@ World.create(document.getElementById('scene-container'), {
   coin1.position.set(6, 1, 6);
   coin1.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin1).addComponent(Interactable);
-  coin1.object3D.addEventListener("pointerdown", destroy);
+  coin1.addEventListener("pointerdown", destroy);
 
   function destroy(){
     coin1.destroy();
