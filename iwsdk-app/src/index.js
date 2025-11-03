@@ -78,14 +78,14 @@ World.create(document.getElementById('scene-container'), {
   const coin1Entity = world.createTransformEntity(coin1);
 
   // coin2
-  const coin2 = AssetManager.getGLTF('coin').scene;
-  coin1.position.set(8, 1, 7);
-  const coin2Entity = world.createTransformEntity(coin2);
+  // const coin2 = AssetManager.getGLTF('coin').scene;
+  // coin1.position.set(8, 1, 7);
+  // const coin2Entity = world.createTransformEntity(coin2);
 
-  //coin3
-  const coin3 = AssetManager.getGLTF('coin').scene;
-  coin3.position.set(8, 1, 7);
-  const coin3Entity = world.createTransformEntity(coin3);
+  // //coin3
+  // const coin3 = AssetManager.getGLTF('coin').scene;
+  // coin3.position.set(8, 1, 7);
+  // const coin3Entity = world.createTransformEntity(coin3);
 
 
   // vvvvvvvv EVERYTHING BELOW WAS ADDED TO DISPLAY A BUTTON TO ENTER VR FOR QUEST 1 DEVICES vvvvvv
