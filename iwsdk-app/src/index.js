@@ -6,7 +6,7 @@ import {
   PlaneGeometry,
   Scene,
   AssetManager, AssetType, 
-  LocomotionEnvironment, EnvironmentType, PlaneGeometry,
+  LocomotionEnvironment, EnvironmentType,
 } from '@iwsdk/core';
 
 import {
@@ -58,7 +58,7 @@ World.create(document.getElementById('scene-container'), {
   sphereEntity.object3D.position.set(1, 0, -2);
 
   // create a floor
-  const floorGeometry = new PlaneGeometry(10, 10);
+  const floorGeometry = new PlaneGeometry(100, 100);
   const floorMaterial = new MeshStandardMaterial({color: "green"});
   const floorMesh = new Mesh(floorGeometry, floorMaterial);
   floorMesh.rotation.x = -Math.PI / 2;
@@ -83,7 +83,7 @@ World.create(document.getElementById('scene-container'), {
 
   //coin3
   const coin3 = AssetManager.getGLTF('coin').scene;
-  coin3.position.set(8, 1, 7);
+  coin3.position.set(8, 1, 9);
   const coin3Entity = world.createTransformEntity(coin3);
 
 
