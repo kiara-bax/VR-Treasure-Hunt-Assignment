@@ -80,7 +80,7 @@ World.create(document.getElementById('scene-container'), {
 
   // coin2
   const coin2 = coinAsset.clone();
-  coin2.position.set(20, 1, -7);
+  coin2.position.set(20, 1, -25);
   world.createTransformEntity(coin2);
 
   //coin3
