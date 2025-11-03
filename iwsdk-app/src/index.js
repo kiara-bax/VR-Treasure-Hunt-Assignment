@@ -71,8 +71,8 @@ World.create(document.getElementById('scene-container'), {
 
   //tree1 clone
   const tree1 = treeAsset.clone();
-  tree.object3D.position.set(5, -1, 5);
-  tree.object3D.scale.set(0.5, 0.5, 0.5);
+  tree1.position.set(5, -1, 5);
+  tree1.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(tree1);
 
   //import 3d object (coin)
@@ -80,20 +80,20 @@ World.create(document.getElementById('scene-container'), {
   
   // coin1 clone
   const coin1 = coinAsset.clone();
-  coin1.object3D.position.set(6, 1, 6);
-  coin1.object3D.scale.set(0.5, 0.5, 0.5);
+  coin1.position.set(6, 1, 6);
+  coin1.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin1);
 
   // coin2 clone
   const coin2 = coinAsset.clone();
-  coin2.object3D.position.set(20, 1, -25);
-  coin2.object3D.scale.set(0.5, 0.5, 0.5);
+  coin2.position.set(20, 1, -25);
+  coin2.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin2);
 
   //coin3 clone
   const coin3 = coinAsset.clone();
-  coin3.object3D.position.set(30, 1, 8);
-  coin3.object3D.scale.set(0.5, 0.5, 0.5);
+  coin3.position.set(30, 1, 8);
+  coin3.scale.set(0.5, 0.5, 0.5);
   world.createTransformEntity(coin3);
 
 
