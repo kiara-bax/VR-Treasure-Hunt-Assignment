@@ -99,7 +99,7 @@ World.create(document.getElementById('scene-container'), {
   const coin2 = coinAsset.clone();
   coin2.position.set(20, 1, -25);
   coin2.scale.set(0.5, 0.5, 0.5);
-  const coin2Entity = world.createTransformEntity(coin2);
+  const coin2Entity = world.createTransformEntity(coin2).addComponent(Interactable);
   coin2Entity.object3D.addEventListener("pointerdown", removeCoin2);
 
   function removeCoin2(){
@@ -109,7 +109,7 @@ World.create(document.getElementById('scene-container'), {
   const coin3 = coinAsset.clone();
   coin3.position.set(30, 1, 8);
   coin3.scale.set(0.5, 0.5, 0.5);
-  const coin3Entity = world.createTransformEntity(coin3);
+  const coin3Entity = world.createTransformEntity(coin3).addComponent(Interactable);
   coin3Entity.object3D.addEventListener("pointerdown", removeCoin3);
 
   function removeCoin3(){
