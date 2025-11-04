@@ -87,14 +87,16 @@ World.create(document.getElementById('scene-container'), {
     height: 0.1,
     mode: ScreenSpace,
   });
+  
+  const scoreEntity = world.createTransformEntity(scorePanel);
+  scoreEntity.object3D.position.z = -2;
 
-  world.add(scorePanel);
   let score = 0;
-  scorePanel.text = "Score: ${score}";
+  scorePanel.text = "Score: " + score;
 
   function updateScore(score) {
     score++;
-    scorePanel.text = "Score: ${score}";
+    scorePanel.text = "Score: " + score;
   }
 
 
