@@ -112,7 +112,7 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin1(){
     coin1Entity.destroy();
-    updateScore();
+    //updateScore();
   }
 
   // coin2 clone
@@ -124,7 +124,7 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin2(){
     coin2Entity.destroy();
-    updateScore();
+    //updateScore();
   }
 
   //coin3 clone
@@ -136,7 +136,7 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin3(){
     coin3Entity.destroy();
-    updateScore();
+    //updateScore();
   }
 
 
