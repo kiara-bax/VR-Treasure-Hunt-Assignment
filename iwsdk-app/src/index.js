@@ -49,27 +49,27 @@ World.create(document.getElementById('scene-container'), {
 
   
   // // Create a green sphere
-  const sphereGeometry = new SphereGeometry(0.5, 32, 32);
-  const greenMaterial = new MeshStandardMaterial({ color: 0x33ff33 });
-  const sphere = new Mesh(sphereGeometry, greenMaterial);
-  //sphere.position.set(1, 0, -2);
-  const sphereEntity = world.createTransformEntity(sphere);
+  // const sphereGeometry = new SphereGeometry(0.5, 32, 32);
+  // const greenMaterial = new MeshStandardMaterial({ color: 0x33ff33 });
+  // const sphere = new Mesh(sphereGeometry, greenMaterial);
+  // //sphere.position.set(1, 0, -2);
+  // const sphereEntity = world.createTransformEntity(sphere);
 
-  // detect x button press
-  function gameLoop() {
-
-
-      const leftCtrl = world.input.gamepads.left
-      if (leftCtrl?.gamepad.buttons[4].pressed) {
-            console.log('x button pressed!');
-            sphereEntity.object3D.position.y += 0.05;
-            // do something like spawn a new object
-      }
+  // // detect x button press
+  // function gameLoop() {
 
 
-      requestAnimationFrame(gameLoop);
-  };
-  gameLoop();
+  //     const leftCtrl = world.input.gamepads.left
+  //     if (leftCtrl?.gamepad.buttons[4].pressed) {
+  //           console.log('x button pressed!');
+  //           sphereEntity.object3D.position.y += 0.05;
+  //           // do something like spawn a new object
+  //     }
+
+
+  //     requestAnimationFrame(gameLoop);
+  // };
+  // gameLoop();
 
   //sphereEntity.object3D.position.set(1, 0, -2);
 
