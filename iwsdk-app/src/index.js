@@ -103,6 +103,7 @@ World.create(document.getElementById('scene-container'), {
   tree3.scale.set(0.5, 0.5, 0.5);
   const tree3Entity = world.createTransformEntity(tree3);
 
+  let score = 0;
 
   //import 3d object (coin)
   const coinAsset = AssetManager.getGLTF('coin').scene;
@@ -116,6 +117,7 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin1(){
     coin1Entity.destroy();
+    score += 1;
     showMessage("Score: " + score);
   }
 
@@ -128,6 +130,8 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin2(){
     coin2Entity.destroy();
+    score += 1;
+    showMessage("Score: " + score);
   }
 
   //coin3 clone
@@ -139,6 +143,8 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin3(){
     coin3Entity.destroy();
+    score += 1;
+    showMessage("Score: " + score);
   }
 
 
