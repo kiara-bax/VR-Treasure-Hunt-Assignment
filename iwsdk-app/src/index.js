@@ -81,23 +81,23 @@ World.create(document.getElementById('scene-container'), {
   tree2.scale.set(0.5, 0.5, 0.5);
   const tree2Entity = world.createTransformEntity(tree2);
 
-  //scorebox
-  const scorePanel = new PanelUI({
-    width: 0.4,
-    height: 0.1,
-    mode: ScreenSpace,
-  });
+  // //scorebox
+  // const scorePanel = new PanelUI({
+  //   width: 0.4,
+  //   height: 0.1,
+  //   mode: ScreenSpace,
+  // });
   
-  const scoreEntity = world.createTransformEntity(scorePanel);
-  scoreEntity.object3D.position.z = -2;
+  // const scoreEntity = world.createTransformEntity(scorePanel);
+  // scoreEntity.object3D.position.z = -2;
 
-  let score = 0;
-  scorePanel.text = "Score: " + score;
+  // let score = 0;
+  // scorePanel.text = "Score: " + score;
 
-  function updateScore(score) {
-    score++;
-    scorePanel.text = "Score: " + score;
-  }
+  // function updateScore(score) {
+  //   score++;
+  //   scorePanel.text = "Score: " + score;
+  // }
 
 
   //import 3d object (coin)
