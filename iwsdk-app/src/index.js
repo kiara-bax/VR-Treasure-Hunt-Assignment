@@ -81,23 +81,13 @@ World.create(document.getElementById('scene-container'), {
   tree2.scale.set(0.5, 0.5, 0.5);
   const tree2Entity = world.createTransformEntity(tree2);
 
-  // //scorebox
-  // const scorePanel = new PanelUI({
-  //   width: 0.4,
-  //   height: 0.1,
-  //   mode: ScreenSpace,
-  // });
-  
-  // const scoreEntity = world.createTransformEntity(scorePanel);
-  // scoreEntity.object3D.position.z = -2;
+  //tree3 clone
+  const tree3 = treeAsset.clone();
+  tree3.position.set(50, -2, -50);
+  tree3.scale.set(0.5, 0.5, 0.5);
+  const tree3Entity = world.createTransformEntity(tree3);
 
-  // let score = 0;
-  // scorePanel.text = "Score: " + score;
-
-  // function updateScore(score) {
-  //   score++;
-  //   scorePanel.text = "Score: " + score;
-  // }
+  //scorebox
 
 
   //import 3d object (coin)
@@ -112,7 +102,6 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin1(){
     coin1Entity.destroy();
-    //updateScore();
   }
 
   // coin2 clone
@@ -124,7 +113,6 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin2(){
     coin2Entity.destroy();
-    //updateScore();
   }
 
   //coin3 clone
@@ -136,7 +124,6 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin3(){
     coin3Entity.destroy();
-    //updateScore();
   }
 
 
