@@ -47,6 +47,41 @@ World.create(document.getElementById('scene-container'), {
 
   const { camera } = world;
 
+   // create a message board using a canvas texture (scoreBox)
+  const canvas = document.createElement('canvas');
+  canvas.width = 2000;
+  canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  ctx.font = 'bold 120px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Place message here', canvas.width / 2, canvas.height / 2);
+  const texture = new CanvasTexture(canvas);
+  const aspect = canvas.width / canvas.height;
+  const boardWidth = 3;                 // world units
+  const boardHeight = boardWidth / aspect;
+  const boardMat = new MeshBasicMaterial({ map: texture, transparent: true, depthTest: false });
+  const boardGeo = new PlaneGeometry(boardWidth, boardHeight);
+  const boardMesh = new Mesh(boardGeo, boardMat);
+  const boardEntity = world.createTransformEntity(boardMesh);
+  boardEntity.object3D.position.set(1, 3, -5);  // in front of the user
+  boardEntity.object3D.visible = false; // start hidden
+  function showMessage(message) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+      texture.needsUpdate = true;
+      boardEntity.object3D.visible = true;
+  }
+  function hideMessage() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      texture.needsUpdate = true;
+      boardEntity.object3D.visible = false;
+  }
+  function showTemporaryMessage(message, duration = 2000) {
+      showMessage(message);
+      setTimeout(() => {
+          hideMessage();
+      }, duration);
+  }
   
   // // Create a green sphere
   // const sphereGeometry = new SphereGeometry(0.5, 32, 32);
@@ -117,8 +152,8 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin1(){
     coin1Entity.destroy();
-    // score += 1;
-    // showMessage("Score: " + score);
+    score += 1;
+    showMessage("Score: " + score);
   }
 
   // coin2 clone
@@ -130,8 +165,8 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin2(){
     coin2Entity.destroy();
-    // score += 1;
-    // showMessage("Score: " + score);
+    score += 1;
+    showMessage("Score: " + score);
   }
 
   //coin3 clone
@@ -143,8 +178,8 @@ World.create(document.getElementById('scene-container'), {
 
   function removeCoin3(){
     coin3Entity.destroy();
-    // score += 1;
-    // showMessage("Score: " + score);
+    score += 1;
+    showMessage("Score: " + score);
   }
 
 
@@ -181,40 +216,5 @@ World.create(document.getElementById('scene-container'), {
     } catch (e) {
       return false;
     }
-  }
- // create a message board using a canvas texture (scoreBox)
-  const canvas = document.createElement('canvas');
-  canvas.width = 2000;
-  canvas.height = 256;
-  const ctx = canvas.getContext('2d');
-  ctx.font = 'bold 120px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('Place message here', canvas.width / 2, canvas.height / 2);
-  const texture = new CanvasTexture(canvas);
-  const aspect = canvas.width / canvas.height;
-  const boardWidth = 3;                 // world units
-  const boardHeight = boardWidth / aspect;
-  const boardMat = new MeshBasicMaterial({ map: texture, transparent: true, depthTest: false });
-  const boardGeo = new PlaneGeometry(boardWidth, boardHeight);
-  const boardMesh = new Mesh(boardGeo, boardMat);
-  const boardEntity = world.createTransformEntity(boardMesh);
-  boardEntity.object3D.position.set(1, 3, -5);  // in front of the user
-  boardEntity.object3D.visible = false; // start hidden
-  function showMessage(message) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillText(message, canvas.width / 2, canvas.height / 2);
-      texture.needsUpdate = true;
-      boardEntity.object3D.visible = true;
-  }
-  function hideMessage() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      texture.needsUpdate = true;
-      boardEntity.object3D.visible = false;
-  }
-  function showTemporaryMessage(message, duration = 2000) {
-      showMessage(message);
-      setTimeout(() => {
-          hideMessage();
-      }, duration);
   }
 });
