@@ -52,43 +52,66 @@ World.create(document.getElementById('scene-container'), {
   //scoreboard
   // create a message board using a canvas texture (scoreBox)
   const canvas = document.createElement('canvas');
-  canvas.width = 2000;
+  canvas.width = 2048;
   canvas.height = 256;
   const ctx = canvas.getContext('2d');
   ctx.font = 'bold 120px sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('Score: ', canvas.width / 2, canvas.height / 2);
+  ctx.fillStyle = 'red';
+  ctx.fillText('Score: 0', canvas.width / 2, canvas.height / 2 + 16);
   
   const texture = new CanvasTexture(canvas);
   const aspect = canvas.width / canvas.height;
-  const boardWidth = 4;                 // world units
+  const boardWidth = 2;                 // world units
   const boardHeight = boardWidth / aspect;
   
-  const boardMat = new MeshBasicMaterial({ map: texture, transparent: true, depthTest: false,  depthWrite: false,
-  side: DoubleSide, });
+  const boardMat = new MeshBasicMaterial({ 
+    map: texture, 
+    transparent: true,  
+    side: DoubleSide,});
 
-  const boardGeo = new PlaneGeometry(boardWidth, boardHeight);
+  const boardGeo = new PlaneGeometry(12, 1.5);
   const boardMesh = new Mesh(boardGeo, boardMat);
-  const boardEntity = world.createTransformEntity(boardMesh).addComponent(ScreenSpace, {top: '20px', left: '20px', height:'10%'});
+  const boardEntity = world.createTransformEntity(boardMesh);
 
-  boardEntity.object3D.position.set(0, 1.8, -2);  // in front of the user
+  boardEntity.object3D.position.set(10, 5, -20);  // in front of the user
   boardEntity.object3D.visible = true; // start hidden
-  boardEntity.object3D.rotation.set(0, 0, 0);
+  boardEntity.object3D.rotation.set(0, Math.PI / 4, 0);
+  boardEntity.object3D.lookAt(camera.position);
 
-  function showMessage(message) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'white';
-      ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+  let score = 0;
+  function updateScoreboard() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (score >= 3){
+      ctx.font = 'bold 200px sans-serif';
+      ctx.fillStyle = 'green';
+      ctx.textAlign = 'center';
+      ctx.fillText('YOU WIN!!!', canvas.width / 2, canvas.height / 2 + 50);
+    } else {
+      // Display regular score
+      ctx.font = 'bold 200px sans-serif';
+      ctx.fillStyle = 'red';
+      ctx.textAlign = 'center';
+      ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
+    }
       texture.needsUpdate = true;
-      boardEntity.object3D.visible = true;
+
   }
+  updateScoreboard();
+  // function showMessage(message) {
+  //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //     ctx.fillStyle = 'white';
+  //     ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+  //     texture.needsUpdate = true;
+  //     boardEntity.object3D.visible = true;
+  // }
   function hideMessage() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       texture.needsUpdate = true;
       boardEntity.object3D.visible = false;
   }
   function showTemporaryMessage(message, duration = 2000) {
-      showMessage(message);
+      updateScoreboard(message);
       setTimeout(() => {
           hideMessage();
       }, duration);
@@ -149,8 +172,6 @@ World.create(document.getElementById('scene-container'), {
   tree3.scale.set(0.5, 0.5, 0.5);
   const tree3Entity = world.createTransformEntity(tree3);
 
-  let score = 0;
-
   //import 3d object (coin)
   const coinAsset = AssetManager.getGLTF('coin').scene;
 
@@ -164,7 +185,8 @@ World.create(document.getElementById('scene-container'), {
   function removeCoin1(){
     coin1Entity.destroy();
     score += 1;
-    showMessage("Score: " + score);
+    updateScoreboard();
+
   }
 
   // coin2 clone
@@ -177,7 +199,7 @@ World.create(document.getElementById('scene-container'), {
   function removeCoin2(){
     coin2Entity.destroy();
     score += 1;
-    showMessage("Score: " + score);
+    updateScoreboard();
   }
 
   //coin3 clone
@@ -190,7 +212,7 @@ World.create(document.getElementById('scene-container'), {
   function removeCoin3(){
     coin3Entity.destroy();
     score += 1;
-    showMessage("Score: " + score);
+    updateScoreboard();
   }
 
 
