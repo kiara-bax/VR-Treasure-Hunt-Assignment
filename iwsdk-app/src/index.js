@@ -17,7 +17,7 @@ import {
 
 import { PanelSystem } from './panel.js'; // system for displaying "Enter VR" panel on Quest 1
 
-import { CanvasTexture, MeshBasicMaterial } from 'three';
+import { CanvasTexture, MeshBasicMaterial, DoubleSide } from 'three';
 
 const assets = { 
   mapleTree: {
