@@ -61,14 +61,19 @@ World.create(document.getElementById('scene-container'), {
   const aspect = canvas.width / canvas.height;
   const boardWidth = 3;                 // world units
   const boardHeight = boardWidth / aspect;
-  const boardMat = new MeshBasicMaterial({ map: texture, transparent: true, depthTest: false });
+  const boardMat = new MeshBasicMaterial({ map: texture, transparent: true, depthTest: false,  depthWrite: false,
+  side: DoubleSide, });
   const boardGeo = new PlaneGeometry(boardWidth, boardHeight);
   const boardMesh = new Mesh(boardGeo, boardMat);
   const boardEntity = world.createTransformEntity(boardMesh);
   boardEntity.object3D.position.set(1, 3, -5);  // in front of the user
   boardEntity.object3D.visible = false; // start hidden
+  boardEntity.object3D.rotation.y = Math.PI;
+  boardEntity.object3D.position.set(0, 2, -2);
+  boardEntity.object3D.scale.set(2, 2, 2);
   function showMessage(message) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
       ctx.fillText(message, canvas.width / 2, canvas.height / 2);
       texture.needsUpdate = true;
       boardEntity.object3D.visible = true;
